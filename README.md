@@ -22,7 +22,7 @@
 ## 基本特性
 
 * UI 模仿 Apple Liquid Glass 风格
-* 适配多语言
+* 适配多语言（本项目目前支持简体中文、英语、俄语，欢迎贡献其他语言。This project currently supports Simplified Chinese, English, and Russian. We welcome contributions in other languages. Этот проект в настоящее время поддерживает упрощенный китайский, английский, русский языки и приветствует вклад других языков.）
 * 注重低内存占用
 * 事件驱动，避免轮询
 * 100% 离线运行
