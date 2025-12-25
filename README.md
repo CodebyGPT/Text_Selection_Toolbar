@@ -5,14 +5,14 @@
 
 脚本大部分代码参考或直接使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
 
-【🧑‍💻 非原创内容声明】
+【💡 非原创内容声明】
 
 1. Icon 来自 allsvgicons.com 提供的 material-symbols:touch-triple。
 2. 脚本大部分代码参考或直接使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
 3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别、greasyfork.org/zh-CN/scripts/439266-网盘有效性检查、github.com/Magiclyan/panAI（forked from syhyz1990/panAI）等脚本。
 4. 中文文本校正功能的部分语法规则参考了 github.com/sparanoid/chinese-copywriting-guidelines 中的内容。
 
-【🤝 社区贡献（对本项目的改进、推广、多语言翻译等方面主动提供帮助的用户）】
+【🧑‍💻 社区贡献（对本项目的改进、推广、多语言翻译等方面主动提供帮助的用户）】
 
 （暂无)
 
