@@ -71,6 +71,7 @@
 |🧩 Feature|实现一致性检查功能|该功能默认开启。1、监听到复制事件时将用户当前选中的文本与剪贴板中的数据进行比较，若不一致则通过GM_notification警告用户；2、检测到用户选中的文本包含隐藏的或屏幕外的元素时警告用户；3、在非原创内容声明中增加：参考自github.com/roedesh/copyguard，演示地址：https://codingcheats.io/copy/ 、https://ruud.je/always-double-check-what-you-copy-from-websites|中|
 |🧩 Feature|光标移至pre:has(code)代码块内时，显示复制全部按钮|默认关闭|中|
 |🧩 Feature|光标移至textarea/input/富文本编辑器内时，显示清空按钮|默认关闭|中|
+|🧩 Feature|鼠标双击textarea/input/富文本编辑器时，粘贴剪贴板内容至上述控件中|粘贴行为模拟真实用户的逐字输入行为，包括按键事件和输入延迟|中|
 |🧩 Feature|优化 UI 的Liquid Glass 效果|目前的 UI 是普通毛玻璃在左上角和右下角贴了一层伪反光模仿Liquid Glass，实际不是Liquid Glass|低|
 |🧩 Feature|让 Unlock Mode 能够解锁 Shadow DOM|需要避免全局遍历，防止脚本在节点数特别多的网页卡死|低|
 |🧩 Feature|丰富输入框划词-校对功能的规则库|（同左）|低|
