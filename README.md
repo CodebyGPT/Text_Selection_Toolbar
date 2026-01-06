@@ -11,7 +11,7 @@
 3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别、greasyfork.org/zh-CN/scripts/439266-网盘有效性检查、github.com/Magiclyan/panAI（forked from syhyz1990/panAI）等脚本。
 4. 中文文本校正功能的部分语法规则参考了 github.com/sparanoid/chinese-copywriting-guidelines 中的内容。
 
-【🧑‍💻 社区贡献（对本项目的改进、推广、多语言翻译等方面主动提供帮助的用户）】
+【🧑‍💻 社区贡献（为本项目的改进、推广、多语言翻译等方面主动提供帮助的用户）】
 
 （暂无)
 
@@ -19,11 +19,11 @@
 
 ## 这是什么？
 
-一个油猴脚本（UserScript）。最初是希望在 Chrome 等浏览器上复刻 Microsoft Edge、360 安全浏览器等内置的快捷划词栏功能（因为我不想每次复制都低头看一眼键盘或者多点一次鼠标右键），于是借助 AI 写了一个简单的划词复制和搜索脚本，后来想法越来越多，干脆当起了产品经理兼 QA，最终拼凑出了这个面向鼠标操作的效率类小工具。
+一个油猴脚本（UserScript）。因为我不想每次复制网页中的文本时都要伸手按下 Ctrl+C 或者多点一次鼠标右键，所以希望在 Chrome 等浏览器中复刻 Microsoft Edge、360 安全浏览器等内置的划词点击复制的快捷体验，于是借助 AI 写了一个简单的划词后快速复制和搜索脚本，后来想法越来越多，干脆当起了产品经理，拼拼凑凑出了这款效率增强类小工具。
 
 ## 如何安装
 
-推荐前往 **Greasy Fork** 安装，已设置源代码同步，支持自动更新🔄️：[https://greasyfork.org/zh-CN/scripts/558720-pickit](https://greasyfork.org/zh-CN/scripts/558720-pickit)
+推荐前往 **Greasy Fork** 安装（已设置源代码同步，支持自动更新🔄️）：[https://greasyfork.org/zh-CN/scripts/558720-pickit](https://greasyfork.org/zh-CN/scripts/558720-pickit)
 
 用户脚本管理器推荐：Chromium 138+：[ScriptCat](https://docs.scriptcat.org/)；旧版 Chromium、Firefox：[Violentmonkey](https://violentmonkey.github.io/)、[ScriptCat（v0.16.x）](https://github.com/scriptscat/scriptcat/releases/tag/v0.16.11)。
 
@@ -83,7 +83,7 @@
 
 ---
 
-本脚本起初只是为了方便我自己工作，所以业余时间利用 AI 拼拼凑凑写出来的，然而随着 tokens 不断增加导致大模型输出的代码质量越来越不稳定，加上我自己不懂编程，所以感觉维护起来越来越困难，欢迎感兴趣的大佬参与贡献、接手开发，或重新实现成 Manifest V3 扩展程序。❤️
+欢迎感兴趣的大佬参与贡献或接手开发本项目，且无需经过我的同意。❤️
 
 ---
 
