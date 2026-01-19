@@ -30,7 +30,7 @@
 ## 基本特性
 
 * UI 模仿 Apple Liquid Glass 风格
-* 适配多语言（本项目目前支持简体中文、英语、俄语，欢迎贡献其他语言。This project currently supports Simplified Chinese, English, and Russian. We welcome contributions in other languages. Этот проект в настоящее время поддерживает упрощенный китайский, английский, русский языки и приветствует вклад других языков.）
+* 适配多语言（目前通过机器翻译支持英语 en 和俄语 ru）
 * 注重低内存占用
 * 默认设置下不对网页进行任何侵入式修改，且脚本运行在独立的沙盒中（依赖 TM 的 @sandbox DOM 或 VM、SC 的 @inject-into content），保证不影响任何网页正常运作
 * 事件驱动，避免轮询等 CPU 密集型代码
@@ -84,4 +84,6 @@
 
 ---
 
-欢迎感兴趣的大佬参与贡献或接手开发本项目（无需经过我的同意）。❤️
+我并不具备专业编程知识，所以维护这个项目比较消耗时间精力，非常欢迎感兴趣的朋友参与贡献或 fork 本项目，对本项目进行的任何更改或转载均不需要经过我的同意。❤️
+I don't possess professional programming knowledge, so maintaining this project is quite time-consuming and laborious. I warmly welcome interested friends to contribute or fork this project. Any modifications or reposting of this project do not require my consent. ❤️
+У меня нет профессиональных знаний в программировании, поэтому поддержка этого проекта требует много времени и сил. Я очень рад, если заинтересованные друзья примут участие в вкладе или fork-нут этот проект. Любые изменения или перепечатки в этом проекте не требуют моего согласия. ❤️
