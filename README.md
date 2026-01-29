@@ -1,8 +1,8 @@
-# PicKit（拾字工具箱）- 提升鼠标在网页浏览器中的操作效率
+# PicKit（拾字）——一个略微增强鼠标操作效率的油猴脚本
 
-【🤖 AICG 警告】
+【🤖 AICG 声明】
 
-脚本大部分代码参考或直接使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
+脚本的大部分代码参考或使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
 
 【💡 非原创内容声明】
 
@@ -11,9 +11,9 @@
 3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别、greasyfork.org/zh-CN/scripts/439266-网盘有效性检查、github.com/Magiclyan/panAI（forked from syhyz1990/panAI）等脚本。
 4. 中文文本校正功能的部分语法规则参考了 github.com/sparanoid/chinese-copywriting-guidelines 中的内容。
 
-【🧑‍💻 社区贡献（为本项目的改进、推广、多语言翻译等方面主动提供帮助的用户）】
+【🧑‍💻 社区贡献名单（主动帮助改进、推广、翻译本项目）】
 
-（暂无)
+暂无
 
 ---
 
