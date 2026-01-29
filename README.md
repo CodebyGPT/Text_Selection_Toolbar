@@ -88,6 +88,6 @@ https://github.com/user-attachments/assets/bd574c71-a9dc-440e-bb6c-eaf9a47f61ce
 
 ---
 
-我并不具备专业编程知识，所以维护这个项目比较消耗时间精力，强烈欢迎感兴趣的朋友参与贡献或 fork 本项目，对本项目的任何借鉴、更改或转载均不需要经过我的同意。❤️
+我并不具备专业编程知识，所以维护这个项目比较消耗时间精力，热烈欢迎感兴趣的朋友参与贡献或 fork 本项目，对本项目的任何借鉴、修改或转载均不需要经过我的同意。❤️
 I don't possess professional programming knowledge, so maintaining this project is quite time-consuming and laborious. I strongly welcome interested friends to contribute or fork this project. Any reference, modification, or reproduction of this project does not require my consent. ❤️
 Я не обладаю профессиональными знаниями в программировании, поэтому поддержка этого проекта требует много времени и сил. Я искренне приветствую заинтересованных друзей, которые могут внести вклад или форкнуть этот проект. Любое использование, изменение или перепечатывание этого проекта не требует моего согласия. ❤️
