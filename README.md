@@ -1,5 +1,4 @@
-# Word selection toolbar（网页划词栏）——为原生浏览器带来快捷划词栏功能
-
+# 为浏览器带来网页划词工具栏功能，只需单击鼠标左键即可完成每一次的复制或搜索。（支持多语言）
 【🤖 AICG 声明】
 
 脚本的大部分代码参考或使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
@@ -27,7 +26,7 @@ https://github.com/user-attachments/assets/bd574c71-a9dc-440e-bb6c-eaf9a47f61ce
 
 ## 如何安装
 
-推荐前往 **Greasy Fork** 安装（已设置源代码同步，支持自动更新🔄️）：[https://greasyfork.org/zh-CN/scripts/558720-pickit](https://greasyfork.org/zh-CN/scripts/558720-pickit)
+推荐前往 **Greasy Fork** 安装（已设置源代码自动同步🔄️）：[https://greasyfork.org/zh-CN/scripts/558720-pickit](https://greasyfork.org/zh-CN/scripts/558720-pickit)
 
 用户脚本管理器推荐：Chromium 138+：[ScriptCat](https://docs.scriptcat.org/)；旧版 Chromium、Firefox：[Violentmonkey](https://violentmonkey.github.io/)、[ScriptCat（v0.16.x）](https://github.com/scriptscat/scriptcat/releases/tag/v0.16.11)。
 
