@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name               PicKit
-// @name:en            PicKit
-// @name:ru            PicKit
-// @name:zh-CN         PicKit- 拾字工具箱
-// @namespace          https://github.com/CodebyGPT/PicKit
-// @version            2026.01.19
-// @description        A user script to reduce mouse clicks.
-// @description:en     A user script to reduce mouse clicks.
-// @description:ru     Пользовательский скрипт для уменьшения количества кликов мыши.
-// @description:zh-CN  尝试让您少点一次鼠标
+// @name               word_selection_toolbar
+// @name:en            word_selection_toolbar
+// @name:ru            панель выбора слов
+// @name:zh-CN         快捷划词栏
+// @namespace          https://github.com/CodebyGPT/word_selection_toolbar
+// @version            2026.02.11
+// @description        Introduce a word selection toolbar to all browsers.
+// @description:en     Introduce a word selection toolbar to all browsers.
+// @description:ru     Внедрить панель выбора слов во все браузеры.
+// @description:zh-CN  为桌面浏览器带来快捷划词栏功能。
 // @author             CodebyGPT
 // @license            GPL-3.0
 // @license            https://www.gnu.org/licenses/gpl-3.0.txt
@@ -23,24 +23,24 @@
 // @sandbox            DOM
 // @inject-into        content
 // @run-at             document-start
-// @supportURL         https://github.com/CodebyGPT/PicKit/issues
+// @supportURL         https://github.com/CodebyGPT/word_selection_toolbar/issues
 // ==/UserScript==
 
 /*
  * 非原创内容声明：
- * 1. Icon 来自 allsvgicons.com 提供的 Material Symbols 图标库。
+ * 1. 本脚本使用的部分图标来自 allsvgicons.com、iconpark.bytedance.com 等网站。
  * 2. 脚本大部分代码参考或直接使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
  * 3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别、greasyfork.org/zh-CN/scripts/439266-网盘有效性检查、github.com/Magiclyan/panAI（forked from syhyz1990/panAI）等脚本。
- * 4. 中文文本校正功能的部分语法规则参考了 github.com/sparanoid/chinese-copywriting-guidelines 中的内容。
+ * 4. 中文文本校正功能的部分语法规则参考了 github.com/sparanoid/chinese-copywriting-guidelines。
  * 
  * Non-original content disclaimer:
- * 1. The icon is sourced from the Material Symbols icon library provided by allsvgicons.com.
+ * 1. Some icons used in this script are sourced from websites such as allsvgicons.com and iconpark.bytedance.com.
  * 2. The script primarily references or directly utilizes the output results from large language models (LLMs) such as Gemini 3 Pro Preview, ChatGPT, Kimi K2, and Qwen3-Max.
  * 3. The quick paste function for cloud storage extraction codes draws inspiration from scripts such as greasyfork.org/zh-CN/scripts/445489-网盘链接识别, greasyfork.org/zh-CN/scripts/439266-网盘有效性检查, and github.com/Magiclyan/panAI (forked from syhyz1990/panAI).
  * 4. The grammatical rules for the Chinese text correction feature are partially referenced from the content on github.com/sparanoid/chinese-copywriting-guidelines.
  * 
  * Заявление о неоригинальном контенте:
- * 1. Иконка взята из библиотеки Material Symbols, предоставленной сайтом allsvgicons.com.
+ * 1. Некоторые иконки, используемые в этом скрипте, взяты с сайтов allsvgicons.com, iconpark.bytedance.com и других.
  * 2. Большая часть кода скрипта заимствована или использована напрямую из Gemini 3 Pro Preview, ChatGPT и Kimi.
  * 3. Функция быстрого вставления кода извлечения облачного хранилища вдохновлена скриптами, такими как greasyfork.org/zh-CN/scripts/445489-网盘链接识别, greasyfork.org/zh-CN/scripts/439266-网盘有效性检查, github.com/Magiclyan/panAI (forked from syhyz1990/panAI).
  * 4. Некоторые грамматические правила функции коррекции китайского текста частично основаны на материале с github.com/sparanoid/chinese-copywriting-guidelines.
@@ -1818,10 +1818,10 @@ function cleanInlineEvents() {
             div2.className = isCol ? 'divider divider-h' : 'divider divider-v';
             container.appendChild(div2);
 
-            // 3. 标记按钮 (黄色背景)
+            // 3. 标记按钮
             const highlightBtn = document.createElement('div');
             highlightBtn.className = 'sc-btn';
-            highlightBtn.innerHTML = `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3a3 3 0 0 1 3 3v6h-1"></path><path d="M10 6l4-3a3 3 0 1 1 3 3L7.5 15.5 6 18l2.5-1.5L18 7"></path></svg>`;
+            highlightBtn.innerHTML = `<?xml version="1.0" encoding="UTF-8"?><svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 44L6 25H12V17H36V25H42V44H6Z" fill="none" stroke="#000000" stroke-width="4" stroke-linejoin="bevel"/><path d="M17 17V8L31 4V17" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-linejoin="bevel"/></svg>`;
             highlightBtn.title = t('btn_highlight');
             highlightBtn.onmousedown = (e) => { e.preventDefault(); e.stopPropagation(); };
             highlightBtn.onclick = (e) => {
