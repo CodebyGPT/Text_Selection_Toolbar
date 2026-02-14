@@ -22,9 +22,9 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 
 ## 如何安装？
 
-推荐优先前往[**Greasy Fork**🔗](https://greasyfork.org/zh-CN/scripts/558720)安装，因为[**Github Releases**🔗](https://github.com/CodebyGPT/word_selection_toolbar/releases)中的脚本不支持自动更新。
+推荐优先前往[🔗**Greasy Fork**](https://greasyfork.org/zh-CN/scripts/558720)安装，因为[🔗**Github Releases**](https://github.com/CodebyGPT/word_selection_toolbar/releases)中的脚本不支持自动更新。
 
-如果你是第一次安装用户脚本，必须先在浏览器中安装用户脚本管理器：Chromium 138+ 推荐使用：[ScriptCat🔗](https://docs.scriptcat.org/)；旧版 Chromium 和 Firefox 浏览器推荐使用：[Violentmonkey🔗](https://violentmonkey.github.io/)、[ScriptCat（v0.16.x）🔗](https://github.com/scriptscat/scriptcat/releases/tag/v0.16.11)。
+如果你是第一次安装用户脚本，必须先在浏览器中安装用户脚本管理器：Chromium 138+ 推荐使用：[🔗ScriptCat](https://docs.scriptcat.org/)；旧版 Chromium 和 Firefox 浏览器推荐使用：[🔗Violentmonkey](https://violentmonkey.github.io/)、[🔗ScriptCat（v0.16.x）](https://github.com/scriptscat/scriptcat/releases/tag/v0.16.11)。
 
 ## 基本特性
 
