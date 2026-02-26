@@ -1,4 +1,6 @@
-# 为桌面浏览器带来快捷划词栏功能
+
+# <img src="https://api.iconify.design/material-symbols:touch-triple.svg" width="48"> word_selection_toolbar
+为桌面浏览器带来快捷划词栏功能。
 
 🤖 AICG 声明：
 脚本的大部分代码参考或直接使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
