@@ -1,5 +1,5 @@
 
-# <img src="https://api.iconify.design/material-symbols:touch-triple.svg" width="48"> word_selection_toolbar - 快捷划词栏
+# <img src="https://api.iconify.design/material-symbols:touch-triple.svg" width="32"> word_selection_toolbar - 快捷划词栏
 为桌面浏览器带来快捷划词栏功能，提升鼠标用户操作效率。
 
 🤖 AICG 声明：
