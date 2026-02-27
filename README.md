@@ -1,4 +1,4 @@
-
+Document Language: [zh/[en](https://github.com/CodebyGPT/word_selection_toolbar/blob/main/README_en.md)/[ru](https://github.com/CodebyGPT/word_selection_toolbar/blob/main/README_ru.md)]
 # <img src="https://api.iconify.design/material-symbols:touch-triple.svg" width="32"> word_selection_toolbar - 快捷划词栏
 为桌面浏览器带来快捷划词栏功能，提升鼠标用户操作效率。
 
