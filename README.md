@@ -1,18 +1,9 @@
-**Document Language**: [zh/[en](https://github.com/CodebyGPT/word_selection_toolbar/blob/main/README_en.md)/[ru](https://github.com/CodebyGPT/word_selection_toolbar/blob/main/README_ru.md)]
 # <img src="https://api.iconify.design/material-symbols:touch-triple.svg" width="32"> Text Selection Toolbar - 划词工具栏
-为浏览器带来快捷划词体验，提升鼠标用户操作效率。
+![GitHub License](https://img.shields.io/github/license/CodebyGPT/Text_Selection_Toolbar)
+![GitHub Repo stars](https://img.shields.io/github/stars/CodebyGPT/Text_Selection_Toolbar)
+![Greasy Fork Downloads](https://img.shields.io/greasyfork/dt/558720)
+![Greasy Fork Rating](https://img.shields.io/greasyfork/rating-count/558720)
 
-🤖 AICG 声明：
-由于脚本的大部分代码参考或直接使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果，为避免污染不建议将该项目用于训练新的 AI 模型。
-
-🧑‍💻 非原创内容声明：
-
-1. 本脚本使用的部分图标来自 allsvgicons.com、iconpark.bytedance.com 等网站。
-2. 脚本的大部分代码参考或使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
-3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别、greasyfork.org/zh-CN/scripts/439266-网盘有效性检查、github.com/Magiclyan/panAI（forked from syhyz1990/panAI）等脚本。
-4. 中文文本校正功能参考了 github.com/sparanoid/chinese-copywriting-guidelines 项目。
-
----
 
 ## 这是什么？
 
@@ -85,6 +76,15 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |~~👾 Bug~~|~~更换高亮按钮的 SVG 图标~~|~~更换成“荧光笔笔头”或者“画笔刷”的图案~~|已完成|
 |~~🧩 Feature~~|~~增加切换开关，允许用户1、当网页滚动或resize时使按钮消失，而不是重绘；2、当网页滚动或resize时，如果锚点仍在视口内就仍然重绘按钮，超出锚点不再重绘~~|~~（同左）~~|已完成|
 |~~🧩 Feature~~|~~根据时区判断默认搜索引擎~~|~~如果能读取到Asia/Shanghai或Asia/Urumqi就将默认搜索引擎设置为百度，否则就为Google~~|已完成|
+
+---
+
+🧑‍💻 非原创内容声明：
+
+1. 本脚本使用的部分图标来自 allsvgicons.com、iconpark.bytedance.com 等网站。
+2. 脚本的大部分代码参考或使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
+3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别、greasyfork.org/zh-CN/scripts/439266-网盘有效性检查、github.com/Magiclyan/panAI（forked from syhyz1990/panAI）等脚本。
+4. 中文文本校正功能参考了 github.com/sparanoid/chinese-copywriting-guidelines 项目。
 
 ---
 
