@@ -1,6 +1,6 @@
 
-# <img src="https://api.iconify.design/material-symbols:touch-triple.svg" width="32"> word_selection_toolbar
-Introduce a word selection toolbar to desktop browsers, enhancing the operational efficiency of mouse users.
+# <img src="https://api.iconify.design/material-symbols:touch-triple.svg" width="32"> Text Selection Toolbar
+Add a text selection toolbar to your browsers, enhancing operational efficiency when using a mouse or touchpad.
 
 🤖 AICG statement:
 Most of the code in the script refers to or directly uses the output results of LLMs such as Gemini 3 Pro Preview, ChatGPT, Kimi K2, and Qwen3-Max.
