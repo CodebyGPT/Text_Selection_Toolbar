@@ -45,7 +45,6 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |类型|事项|详情|优先级|
 | :--------  | :--------  | :-----  | :----:  |
 |👾 Bug|超级取词（Unlock Mode）在部分网站无法按预期工作|1、在 https://rehtt.com/ 中无法划取文本；2、无法划取部分元素中的文本|常驻|
-|👾 Bug|复制表格内的文本时，复制的文本前面容易携带无用的制表符和换行符|用户跨单元格边界选取文本时，浏览器会插入 \t（U+0009，水平制表符）和 \n 来保持表格结构，导致用户有时候会发现复制出的文本前面会有两个空白符（其实是制表符和换行符），需要考虑如何优化|高|
 |👾 Bug|超链接提取规则待完善|1、文本【天翼云盘：https://cloud.189.cn/t/3yqYreieuUFv(访问码:cpn0)】被识别成了链接【https://cloud.189.cn/t/3yqYreieuUFv(:cpn0】；2、文本【5日iPhone 历代壁纸https://www.aliyundrive.com/s/rxUp6HNpwP8点击链接保存,或者复制本段内容,打开「阿里云盘」APP ,无】被识别为了链接【https://www.aliyundrive.com/s/rxUp6HNpwP8,,「」APP】|高|
 |👾 Bug|优化剪切按钮的逻辑|剪切逻辑在某些网页中无法正常删除选中的文字，例如markdown.lovejade.cn|中|
 |👾 Bug|闪电粘贴无法触发能被网页捕获到的粘贴事件|修改粘贴逻辑以解决（例如百度翻译fanyi.baidu.com，粘贴文本后无法即时发起翻译）|中|
@@ -64,7 +63,7 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |🧩 Feature|光标移至pre:has(code)代码块内时，显示复制全部按钮|默认关闭|中|
 |🧩 Feature|光标移至textarea/input/富文本编辑器内时，显示清空按钮|默认关闭|中|
 |🧩 Feature|鼠标双击textarea/input/富文本编辑器时，粘贴剪贴板内容至上述控件中|粘贴行为模拟真实用户的逐字输入行为，包括按键事件和输入延迟|中|
-|🧩 Feature|优化 UI 的Liquid Glass 效果|目前的 UI 是普通毛玻璃在左上角和右下角贴了一层伪反光模仿Liquid Glass，实际不是Liquid Glass|低|
+|🧩 Feature|优化 UI 的Liquid Glass 效果|（同左）|低|
 |🧩 Feature|给闪电粘贴增加“粘贴并回车”按钮|点击输入框触发闪电粘贴时，在“粘贴”按钮右侧增加“粘贴并回车”按钮|低|
 |🧩 Feature|让 Unlock Mode 能够解锁 Shadow DOM|需要避免全局遍历，防止脚本在节点数特别多的网页卡死|低|
 |🧩 Feature|丰富输入框划词-校对功能的规则库|（同左）|低|
@@ -73,6 +72,7 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |🧩 Feature|支持放大查看图片|仿淘宝京东商品图片放大预览|待定|
 |💡 Other|为项目创建 GitHub Page|（同左）|待定|
 |💡 Other|优化代码逻辑、结构和可读性|（同左）|低|
+|~~👾 Bug~~|~~复制表格内的文本时，复制的文本前面容易携带无用的制表符和换行符~~|~~用户跨单元格边界选取文本时，浏览器会插入 \t（U+0009，水平制表符）和 \n 来保持表格结构，导致用户有时候会发现复制出的文本前面会有两个空白符（其实是制表符和换行符），需要考虑如何优化~~|暂不处理|
 |~~👾 Bug~~|~~更换高亮按钮的 SVG 图标~~|~~更换成“荧光笔笔头”或者“画笔刷”的图案~~|已完成|
 |~~🧩 Feature~~|~~增加切换开关，允许用户1、当网页滚动或resize时使按钮消失，而不是重绘；2、当网页滚动或resize时，如果锚点仍在视口内就仍然重绘按钮，超出锚点不再重绘~~|~~（同左）~~|已完成|
 |~~🧩 Feature~~|~~根据时区判断默认搜索引擎~~|~~如果能读取到Asia/Shanghai或Asia/Urumqi就将默认搜索引擎设置为百度，否则就为Google~~|已完成|
