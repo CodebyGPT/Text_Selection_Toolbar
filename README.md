@@ -36,7 +36,7 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |🖱️ 网页划词|弹出快捷复制、搜索栏。如果文本含超链接则弹出打开（新建标签页）按钮，如果是常见的网盘链接同时附带访问密码+用户开启了“闪电粘贴”，则跳转到新标签页后点击输入框可以快速粘贴密码。|2025.12.12-功能上线、2026.1.5-增加 UI 重绘设置项、2026.1.19-增加智能分配搜索引擎功能|
 |⌨️ 输入框划词|弹出快捷复制、剪贴按钮。在中文环境下若匹配到内置规则时（例如中英文字符之间没有空格且没有被引号框住）弹出校对按钮。|2025.12.12-功能上线|
 |⚡ 闪电粘贴|复制后，在任意标签页的输入框中点击直接弹出粘贴按钮。|2025.12.12-功能上线|
-|🔓 超级取词|按住热键，可以临时移除网页通过 JS 或 CSS 对选中、复制、Ctrl+C 等操作的干扰，使被鼠标点击的密码暂时变成明文，可完整选取被折叠的文本，松开热键一切复原。|2025.12.12-功能上线|
+|🔓 超级取词|按住热键，可以临时移除网页通过 JS 或 CSS 对选中、复制、Ctrl+C 等操作的干扰，使被鼠标点击的密码暂时变成明文，可完整选取被折叠的文本，松开热键一切复原。测试效果：https://www.wlgooo.com/19458.html 、 https://rehtt.com/ 、 https://www.cnblogs.com/ppqppl/articles/17461611.html 、 https://www.baidu.com/s?wd=0 （测试是否可以展开因 text-overflow 属性折叠的文本）|2025.12.12-功能上线|
 |🔗 拖拽预览|拖拽任意超链接可打开小窗快速预览。|2025.12.12-功能上线|
 |🚫 屏蔽网页自带划词条|干掉讨厌的网页自带的划词条。|2025.12.12-功能上线|
 
@@ -44,10 +44,10 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 
 |类型|事项|详情|优先级|
 | :--------  | :--------  | :-----  | :----:  |
-|👾 Bug|超级取词（Unlock Mode）在部分网站无法按预期工作|1、相关代码在极个别网站例如 https://rehtt.com/ 中无法正常处理，导致用户无法在这些网站中划取文本；2、某些网站（例如知乎专栏）由于使用自定义字体，导致复制到的内容含有乱码。解决此问题的通用办法是OCR，建议用户借助有OCR功能的浏览器扩展或Windows截图工具等对此类网站中的文本进行识别；3、shadow-root相关：无论是否激活unlock mode，用户都无法划动选取msn.cn中的部分卡片内的资讯标题。|高（问题1）、常驻（问题2、3）|
-|👾 Bug|超链接提取规则待完善|1、文本【天翼云盘：https://cloud.189.cn/t/3yqYreieuUFv(访问码:cpn0)】被识别成了链接【https://cloud.189.cn/t/3yqYreieuUFv(:cpn0】；2、文本【5日iPhone 历代壁纸https://www.aliyundrive.com/s/rxUp6HNpwP8点击链接保存,或者复制本段内容,打开「阿里云盘」APP ,无】被识别为了链接【https://www.aliyundrive.com/s/rxUp6HNpwP8,,「」APP】|高|
-|👾 Bug|优化剪切按钮的逻辑|剪切逻辑在某些网页中无法正常删除选中的文字，例如markdown.lovejade.cn|中|
-|👾 Bug|闪电粘贴无法触发能被网页捕获到的粘贴事件|修改粘贴逻辑以解决（例如百度翻译fanyi.baidu.com，粘贴文本后无法即时发起翻译）|中|
+|👾 Bug|超级取词（Unlock Mode）在部分网站无法按预期工作|1、某些网站（例如知乎专栏）由于使用自定义字体，导致复制到的内容含有乱码。解决此问题的通用办法是OCR，建议用户借助有OCR功能的浏览器扩展或Windows截图工具等对此类网站中的文本进行识别；2、shadow-root相关：无论是否激活unlock mode，用户都无法划动选取msn.cn中的部分卡片内的资讯标题。|常驻|
+|👾 Bug|超链接提取规则待完善|例如：文本【 天翼云盘：https://cloud.189.cn/t/3yqYreieuUFv(访问码:cpn0) 】被识别成了链接【 https://cloud.189.cn/t/3yqYreieuUFv(:cpn0 】，文本【 5日iPhone 历代壁纸https://www.aliyundrive.com/s/rxUp6HNpwP8点击链接保存,或者复制本段内容,打开「阿里云盘」APP ,无 】被识别为了链接【 https://www.aliyundrive.com/s/rxUp6HNpwP8,,「」APP 】|高|
+|👾 Bug|优化剪切按钮的逻辑|剪切逻辑在某些网页中无法正常删除选中的文字，例如 markdown.lovejade.cn |中|
+|👾 Bug|闪电粘贴无法触发能被网页捕获到的粘贴事件|修改粘贴逻辑以解决（例如百度翻译 fanyi.baidu.com ，粘贴文本后无法即时发起翻译）|中|
 |👾 Bug|修复超级取词-完整选取被折叠的文本功能|该功能会造成某些文本显示位置发生错位，例如百度搜索结果页右侧栏中的“弹幕互动”|中|
 |👾 Bug|解决反向选区按钮位置在页面 scroll/resize 后跳回正向选区按钮位置的问题|（同左）|中|
 |👾 Bug|按钮在某些情况下无法触发刷新位置逻辑|例如GitHub编辑readme.md时|中|
@@ -59,7 +59,7 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |🧩 Feature|拖拽预览增加点击父窗口自动关闭子窗口（预览弹窗）功能|1、需要实现跨标签页和跨域通信，且避免轮询；2、需要适配有前置跳转页面的网页，打开这类网页时如果不做处理会使子窗口断开与父窗口的关联，导致点击父窗口无法关闭子窗口|中|
 |🧩 Feature|实现文本流转功能|默认是折叠状态（在网页右上角显示一个贴边悬浮球），用户在网页中划词后可将选中的文本拖放到悬浮球上。点击悬浮球可展开列表（展开/折叠状态默认在所有标签页中同步），每个条目都以长条胶囊形的文本框显示，用户可以将每个胶囊拖放到网页任意输入区中，也可以多选多个条目后按选择顺序进行换行拼接后复制或首尾拼接后复制。该功能还要提供设置让用户选择关闭浏览器时是否保存流转中的文本|中|
 |🧩 Feature|实现划词多选功能|初步定为超级取词的二级功能，用户激活超级取词后，划词后显示复制和多选两个按钮，多选按钮图标为📌图钉形状。在激活超级取词期间，划取任意一段文本并点击弹出来的多选按钮，文本背景会一直高亮，表示处于被选中状态，当用户多选多条文本并松开超级取词热键后，出现按钮“换行拼接”、“首尾拼接”、“添加顿号并首尾拼接”（如果脚本语言为非中文则是“添加半角逗号并首尾拼接”选项）和“文本流转”四个选项。该功能支持反选，比如用户划动选取已经高亮处于多选状态的文本时，点击弹出的多选按钮可以取消选中这段文本。|高，其中“文本流转”选项需等待文本流转功能实现|
-|🧩 Feature|实现一致性检查功能|该功能默认开启。1、监听到复制事件时将用户当前选中的文本与剪贴板中的数据进行比较，若不一致则通过GM_notification警告用户；2、检测到用户选中的文本包含隐藏的或屏幕外的元素时警告用户；3、在非原创内容声明中增加：参考自github.com/roedesh/copyguard，演示地址：https://codingcheats.io/copy/ 、https://ruud.je/always-double-check-what-you-copy-from-websites|中|
+|🧩 Feature|实现一致性检查功能|该功能默认开启。1、监听到复制事件时将用户当前选中的文本与剪贴板中的数据进行比较，若不一致则通过GM_notification警告用户；2、检测到用户选中的文本包含隐藏的或屏幕外的元素时警告用户；3、在非原创内容声明中增加：参考自 github.com/roedesh/copyguard ，演示地址：https://codingcheats.io/copy/ 、 https://ruud.je/always-double-check-what-you-copy-from-websites |中|
 |🧩 Feature|光标移至pre:has(code)代码块内时，显示复制全部按钮|（同左）|中|
 |🧩 Feature|尝试增强 UI 的 Liquid Glass 效果|目前的效果只是仿Liquid Glass，实际上是毛玻璃+边缘静态高光，没有Liquid Glass能使下层画面扭曲变形等的高级效果|低|
 |🧩 Feature|丰富输入区文本校对功能的规则|（同左）|低|
@@ -78,8 +78,8 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 🧑‍💻 非原创内容声明：
 
 1. 本脚本使用的部分图标来自 allsvgicons.com、iconpark.bytedance.com 等网站。
-2. 脚本的大部分代码参考或使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
-3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别、greasyfork.org/zh-CN/scripts/439266-网盘有效性检查、github.com/Magiclyan/panAI（forked from syhyz1990/panAI）等脚本。
+2. 脚本的大部分代码参考或使用了 Gemini、ChatGPT、Kimi、Qwen 等大语言模型的输出结果。
+3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别 、 greasyfork.org/zh-CN/scripts/439266-网盘有效性检查 、 github.com/Magiclyan/panAI（forked from syhyz1990/panAI） 等脚本。
 4. 中文文本校正功能参考了 github.com/sparanoid/chinese-copywriting-guidelines 项目。
 
 ---
