@@ -4,6 +4,7 @@
 ![Greasy Fork Downloads](https://img.shields.io/greasyfork/dt/558720)
 ![Greasy Fork Rating](https://img.shields.io/greasyfork/rating-count/558720)
 
+![demo](https://github.com/user-attachments/assets/f119f59d-fca7-4364-b2e0-c556f2501c7f)
 
 ## 这是什么？
 
