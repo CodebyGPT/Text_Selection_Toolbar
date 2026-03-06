@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name               word_selection_toolbar
-// @name:en            word_selection_toolbar
-// @name:ru            панель выбора слов
-// @name:zh-CN         快捷划词栏
-// @namespace          https://github.com/CodebyGPT/word_selection_toolbar
-// @version            2026.02.26
-// @description        Introduce a word selection toolbar to all browsers.
-// @description:en     Introduce a word selection toolbar to all browsers.
-// @description:ru     Внедрить панель выбора слов во все браузеры.
-// @description:zh-CN  为桌面浏览器带来快捷划词栏功能。
+// @name               Text_Selection_Toolbar-划词工具栏
+// @name:en            Text_Selection_Toolbar
+// @name:ru            Панель_выбора_текста
+// @name:zh-CN         划词工具栏
+// @namespace          https://github.com/CodebyGPT/Text_Selection_Toolbar
+// @version            2026.03.05
+// @description        Add a text selection toolbar to your browser.-为你的浏览器增加一个划词工具栏。
+// @description:en     Add a text selection toolbar to your browser.
+// @description:ru     Добавьте панель инструментов для выделения текста в ваш браузер.
+// @description:zh-CN  为你的浏览器增加一个划词工具栏。
 // @author             CodebyGPT
 // @license            GPL-3.0
 // @license            https://www.gnu.org/licenses/gpl-3.0.txt
@@ -23,15 +23,15 @@
 // @sandbox            DOM
 // @inject-into        content
 // @run-at             document-start
-// @supportURL         https://github.com/CodebyGPT/word_selection_toolbar/issues
+// @supportURL         https://github.com/CodebyGPT/Text_Selection_Toolbar/issues
 // ==/UserScript==
 
 /*
  * 非原创内容声明：
  * 1. 本脚本使用的部分图标来自 allsvgicons.com、iconpark.bytedance.com 等网站。
- * 2. 脚本大部分代码参考或直接使用了 Gemini 3 Pro Preview、ChatGPT、Kimi K2、Qwen3-Max 等 LLM 的输出结果。
- * 3. 快速粘贴网盘提取码功能参考了 greasyfork.org/zh-CN/scripts/445489-网盘链接识别、greasyfork.org/zh-CN/scripts/439266-网盘有效性检查、github.com/Magiclyan/panAI（forked from syhyz1990/panAI）等脚本。
- * 4. 中文文本校正功能的部分语法规则参考了 github.com/sparanoid/chinese-copywriting-guidelines。
+ * 2. 脚本大部分代码参考或直接使用了 Gemini、ChatGPT、Kimi、Qwen 等大语言模型的输出结果。
+ * 3. 快速粘贴网盘提取码功能参考了“greasyfork.org/zh-CN/scripts/445489-网盘链接识别”、“greasyfork.org/zh-CN/scripts/439266-网盘有效性检查”、“github.com/Magiclyan/panAI（forked from syhyz1990/panAI）”等脚本。
+ * 4. 中文文本校正功能的部分语法规则参考了“github.com/sparanoid/chinese-copywriting-guidelines”等项目。
  * 
  * Non-original content disclaimer:
  * 1. Some icons used in this script are sourced from websites such as allsvgicons.com and iconpark.bytedance.com.
@@ -155,44 +155,44 @@ const safeOpenTab = (url, options) => {
         'zh-CN': {
             lang_name: '简体中文',
             menu_lang: '🌐 语言/Language',
-            menu_pos: '📍 定位模式',
+            menu_pos: '📍 UI 弹出位置',
             val_endchar: '字符末尾',
-            val_mouse: '鼠标位置',
-            menu_offset: '📏 弹出偏移量',
-            prompt_offset: '请输入按钮距离选区的偏移量 (px):',
-            menu_timeout: '⏱️ 停留时长',
+            val_mouse: '光标附近',
+            menu_offset: '📏 UI 弹出偏移量',
+            prompt_offset: '请输入 UI 距离锚点的偏移量 (px):',
+            menu_timeout: '⏱️ UI 停留时长',
             val_infinite: '不消失',
-            prompt_timeout: '请输入停留时长 (ms, 0表示不自动消失):',
-            menu_style: '🎨 按钮布局',
+            prompt_timeout: '请输入 UI 停留时长 (ms, 0表示不自动消失):',
+            menu_style: '🎨 UI 布局',
             val_row: '横排胶囊',
             val_col: '纵排矩形',
-            menu_theme: '🌓 配色方案',
+            menu_theme: '🌓 UI 配色',
             val_light: '强制浅色',
             val_auto: '自动反色',
             menu_search: '🔍 搜索引擎',
             prompt_search: '请输入搜索引擎代码 (google, baidu, bing, brave) 或完整URL (%s 代替关键词):',
-            err_search: '无效输入。自定义URL需包含 %s',
+            err_search: '无效的输入。自定义URL需包含 %s',
             menu_cache: '💾 选中即缓存',
             val_on: '开启',
             val_off: '关闭',
-            menu_toast: '🔔 复制反馈',
-            menu_hotkey: '🔑 超级划词键',
+            menu_toast: '🔔 操作反馈',
+            menu_hotkey: '🔑 超级取词键',
             val_disabled: '已禁用',
-            prompt_hotkey: '请按下快捷键 (如 Ctrl, Alt, Shift) 或输入 "NONE" 禁用:',
+            prompt_hotkey: '请指定快捷键 (如 Ctrl, Alt, Shift) 或输入 "NONE" 以禁用:',
             menu_paste: '⚡ 闪电粘贴',
-            menu_block: '🚫 屏蔽页面自带划词条',
+            menu_block: '🚫 屏蔽网页自建划词栏',
             menu_clear: '🗑️ 清除当前域名屏蔽规则',
             confirm_clear: '确定要清除 %s 下所有屏蔽规则吗？',
             alert_cleared: '规则已清除，请刷新。',
-            alert_no_rules: '当前域名无已保存规则。',
-            menu_reset: '⚙️ 重置所有设置',
-            confirm_reset: '确定要重置所有设置吗？',
-            toast_unlock: '🔓 超级划词已激活',
+            alert_no_rules: '当前域名无已保存的规则。',
+            menu_reset: '⚙️ 重置全部设置',
+            confirm_reset: '确定要重置所有的设置吗？',
+            toast_unlock: '🔓 超级取词已激活',
             toast_copied: '已复制',
             toast_pasted: '已粘贴',
             toast_paste_compat: '已粘贴 (兼容模式)',
             toast_paste_fail: '粘贴失败',
-            picker_active: '进入拾取模式；按 ESC 退出',
+            picker_active: '已进入拾取模式；按 ESC 退出',
             picker_cant_block_self: '不能屏蔽脚本自身的按钮！',
             picker_confirm: '确定屏蔽该元素吗？(按Esc退出)\n\n选择器: %s',
             picker_saved: '元素已屏蔽并保存规则',
@@ -211,18 +211,18 @@ const safeOpenTab = (url, options) => {
             btn_delete: '删除',
             btn_bold: '加粗',
             btn_highlight: '标记',
-            disclaimer_text: '此网页内容已经过 <SCRIPT_NAME> 编辑，仅出于简化网页便于浏览之目的，不作他用。',
-            scroll_repaint: '📜 UI 重绘',
-scroll_always: '始终重绘',
-scroll_viewport: '锚点在视口内重绘',
-scroll_hide: '始终不重绘',
-menu_smart_engine: '🧠 智能分配引擎',
-menu_fallback_engine: '🔍 备用搜索引擎',
-val_smart_on: '开启',
-val_smart_off: '关闭',
-menu_delete_btn: '🗑️ 删除按钮可见性',
-val_show: '显示',
-val_hide: '隐藏',
+            disclaimer_text: '此网页内容已经过 <SCRIPT_NAME> 编辑',
+            scroll_repaint: '📜 UI 重绘策略',
+            scroll_always: '始终重绘',
+            scroll_viewport: '锚点在视口内重绘',
+            scroll_hide: '始终不重绘',
+            menu_smart_engine: '🧠 智能分配搜索引擎',
+            menu_fallback_engine: '🔍 备用搜索引擎',
+            val_smart_on: '开启',
+            val_smart_off: '关闭',
+            menu_delete_btn: '🗑️ 删除按钮可见性',
+            val_show: '显示',
+            val_hide: '隐藏',
         },
         'en': {
             lang_name: 'English',
@@ -1302,79 +1302,107 @@ function getSmartSelectionState(selection, mouseEvent) {
     let startPos = { x: 0, y: 0 };
 
     // 1. 动态CSS：强制文本可选，屏蔽拖拽，屏蔽指针事件限制等
-    function getUnlockCSS() {
-        return `
-            /* --- 1. 全局强制可选 (排除受保护元素) --- */
-            /* 权重: 0,1,1 (html/body) 或 0,1,0 (*:not) */
-            html, body, *:not([data-tm-policy="protected"]), [unselectable] {
-                user-select: text !important;
-                -webkit-user-select: text !important;
-                -moz-user-select: text !important;
-                -ms-user-select: text !important;
-                cursor: text !important;
-            }
-            /* 强制高亮颜色 */
-            ::selection {background-color: #3390FF !important;color: #ffffff !important;text-shadow: none !important;}
-            ::-moz-selection {background-color: #3390FF !important;color: #ffffff !important;text-shadow: none !important;}
-            /* 让链接看起来像普通文本，且禁止图片/链接被拖拽（干扰划词） */
-            a:not([data-tm-policy="protected"]), 
-            a *:not([data-tm-policy="protected"]), 
-            img:not([data-tm-policy="protected"]){
-                pointer-events: auto !important; /* 必须允许点击才能触发我们的拦截逻辑，否则无法划词 */
-                user-drag: none !important;
-                -webkit-user-drag: none !important;
-                text-decoration: none !important; /* 视觉上更像文本 */
-            }
-            /* 禁用常见的透明遮罩层交互，让鼠标穿透到下方文字 */
-            /* 注意：这不会影响文字本身，因为文字会继承通配符的 pointer-events: auto */
-            div[style*="z-index"][style*="fixed"]:not([data-tm-policy="protected"]), 
-            div[style*="z-index"][style*="absolute"]:not([data-tm-policy="protected"]) {pointer-events: none !important;}
-            
-            /* 重新把文字元素的交互打开，防止被上面的规则误杀 */
-            /* 权重计算: div(1) + [style](10) + :not(10) = 21 */
-            div[style*="z-index"] *:not([data-tm-policy="protected"]), 
-            p:not([data-tm-policy="protected"]), 
-            span:not([data-tm-policy="protected"]), 
-            h1:not([data-tm-policy="protected"]), h2:not([data-tm-policy="protected"]), 
-            h3:not([data-tm-policy="protected"]), h4:not([data-tm-policy="protected"]), 
-            h5:not([data-tm-policy="protected"]), h6:not([data-tm-policy="protected"]), 
-            em:not([data-tm-policy="protected"]), strong:not([data-tm-policy="protected"]), 
-            i:not([data-tm-policy="protected"]), b:not([data-tm-policy="protected"]), 
-            td:not([data-tm-policy="protected"]), li:not([data-tm-policy="protected"]), 
-            code:not([data-tm-policy="protected"]), pre:not([data-tm-policy="protected"]) {
-                pointer-events: auto !important;
-            }
-            /* 针对被截断文本展开后的样式：隐藏滚动条但保留滚动功能 */
-            .tm-sc-expanded {
-                scrollbar-width: none !important; /* Firefox */
-                -ms-overflow-style: none !important; /* IE或Edge */
-            }
-            .tm-sc-expanded::-webkit-scrollbar {
-                display: none !important;
-                width: 0 !important;
-                height: 0 !important;
-            }
+function getUnlockCSS() {
+    return `
+        /* --- 1. 全局强制可选 (分离 cursor 设置) --- */
+        html, body, *:not([data-tm-policy="protected"]), [unselectable] {
+            user-select: text !important;
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+            /* cursor: text 已移除，见下方专门规则 */
+        }
+        
+        /* 修复：html/body 保持 default cursor，防止全局污染 */
+        html, body {
+            cursor: default !important;
+        }
+        
+        /* 修复：仅为实际文本元素设置 text cursor */
+        p, span, div, h1, h2, h3, h4, h5, h6, li, td, th, pre, code, 
+        blockquote, article, section, main, aside, header, footer, 
+        nav, figcaption, label, time, mark, em, strong, i, b, u, 
+        s, small, cite, dfn, abbr, data, q, sub, sup, kbd, samp, 
+        var, output, details, summary, address, dl, dt, dd, 
+        fieldset, legend, caption, tbody, thead, tfoot, tr, 
+        button:not([disabled]), 
+        a:not([data-tm-policy="protected"]) {
+            cursor: text !important;
+        }
+
+        /* 强制高亮颜色 */
+        ::selection {background-color: #3390FF !important;color: #ffffff !important;text-shadow: none !important;}
+        ::-moz-selection {background-color: #3390FF !important;color: #ffffff !important;text-shadow: none !important;}
+        
+        /* 让链接看起来像普通文本，且禁止图片/链接被拖拽（干扰划词） */
+        a:not([data-tm-policy="protected"]), 
+        a *:not([data-tm-policy="protected"]), 
+        img:not([data-tm-policy="protected"]){
+            pointer-events: auto !important;
+            user-drag: none !important;
+            -webkit-user-drag: none !important;
+            text-decoration: none !important;
+        }
+        
+        /* 禁用常见的透明遮罩层交互，让鼠标穿透到下方文字 */
+        div[style*="z-index"][style*="fixed"]:not([data-tm-policy="protected"]), 
+        div[style*="z-index"][style*="absolute"]:not([data-tm-policy="protected"]) {
+            pointer-events: none !important;
+        }
+        
+        /* 修复：增强 pointer-events 恢复逻辑，覆盖更多容器类型 */
+        div:not([data-tm-policy="protected"]), 
+        article:not([data-tm-policy="protected"]), 
+        main:not([data-tm-policy="protected"]), 
+        section:not([data-tm-policy="protected"]), 
+        aside:not([data-tm-policy="protected"]), 
+        header:not([data-tm-policy="protected"]), 
+        footer:not([data-tm-policy="protected"]), 
+        nav:not([data-tm-policy="protected"]), 
+        figure:not([data-tm-policy="protected"]), 
+        figcaption:not([data-tm-policy="protected"]), 
+        details:not([data-tm-policy="protected"]), 
+        summary:not([data-tm-policy="protected"]), 
+        fieldset:not([data-tm-policy="protected"]), 
+        dialog:not([data-tm-policy="protected"]),
+        p:not([data-tm-policy="protected"]), 
+        span:not([data-tm-policy="protected"]), 
+        h1:not([data-tm-policy="protected"]), h2:not([data-tm-policy="protected"]), 
+        h3:not([data-tm-policy="protected"]), h4:not([data-tm-policy="protected"]), 
+        h5:not([data-tm-policy="protected"]), h6:not([data-tm-policy="protected"]), 
+        em:not([data-tm-policy="protected"]), strong:not([data-tm-policy="protected"]), 
+        i:not([data-tm-policy="protected"]), b:not([data-tm-policy="protected"]), 
+        td:not([data-tm-policy="protected"]), li:not([data-tm-policy="protected"]), 
+        code:not([data-tm-policy="protected"]), pre:not([data-tm-policy="protected"]) {
+            pointer-events: auto !important;
+        }
+        
+        /* 针对被截断文本展开后的样式：隐藏滚动条但保留滚动功能 */
+        .tm-sc-expanded {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+        .tm-sc-expanded::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        
         /* [新增补丁] 某些网页为了实现"卡片整体可点击"，使用了绝对定位的透明链接层覆盖在文本上方，导致鼠标事件被拦截无法穿透，以下补丁专门针对覆盖文本的透明链接层（如 Tailwind 的 absolute inset-0） */
         a.absolute, a[style*="position: absolute"] { pointer-events: none !important; }
         
-            /* 放在最后，确保权重覆盖所有上方规则 */
-            /* 
-               技巧：重复属性选择器三次，权重叠加。
-               权重计算: [attr](10) * 3 = 30。
-               30 > 21 (Rule 5)。
-               这将彻底覆盖上方任何针对其子元素的 pointer-events: auto 设置。
-            */
-            [data-tm-policy="protected"][data-tm-policy="protected"][data-tm-policy="protected"],
-            [data-tm-policy="protected"][data-tm-policy="protected"][data-tm-policy="protected"] * {
-                user-select: none !important;
-                -webkit-user-select: none !important;
-                -moz-user-select: none !important;
-                pointer-events: none !important; /* 强制穿透，不给鼠标任何机会 */
-                cursor: default !important;
-                z-index: 2147483647 !important;
-            }
-        `;
-    }
+        /* 放在最后，确保权重覆盖所有上方规则 */
+        [data-tm-policy="protected"][data-tm-policy="protected"][data-tm-policy="protected"],
+        [data-tm-policy="protected"][data-tm-policy="protected"][data-tm-policy="protected"] * {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            pointer-events: none !important;
+            cursor: default !important;
+            z-index: 2147483647 !important;
+        }
+    `;
+}
 
     // 检查是否为受保护元素
     function isProtectedElement(target) {
