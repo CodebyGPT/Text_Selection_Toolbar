@@ -54,7 +54,7 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |👾 Bug|按钮在某些情况下无法触发刷新位置逻辑|例如GitHub编辑readme.md时|中|
 |👾 Bug|按钮在某些网页中，当页面刷新或resize后彻底消失无法触发重绘，而且反向选区逻辑不生效|例如哔哩哔哩任意视频详情页的任意评论|中|
 |🧩 Feature|优化超链接识别规则|现有识别规则太过宽泛（例如会把“abcd.efg”也识别成超链接），计划内置一个常见的顶级域名列表来解决|高|
-|🧩 Feature|实现划词翻译功能|借助 Google Chrome 在138+ 开始提供的 Translator API 实现划词后纯离线零延迟翻译体验。自动跳过代码段、含超链接的文本和被英文双引号框住的文本。计划暂时只实现en→zh翻译|高|
+|🧩 Feature|实现划词翻译功能|借助 Google Chrome 在138+ 开始提供的 Translator API 实现划词后纯离线零延迟翻译体验。自动跳过代码段、含超链接的文本和被英文双引号框住的文本。计划暂时只实现en→zh翻译。Built-In AI Playground: https://ai.etiennenoel.com/translator-api 。Availability Code：const availability = await Translator.availability({sourceLanguage: "en", targetLanguage: "zh"}); 。Execute Code：const translator = await Translator.create({sourceLanguage: "en", targetLanguage: "zh", monitor(m) {m.addEventListener("downloadprogress", e => {console.log(`Downloaded ${e.loaded} of ${e.total} bytes.`);});},}); await translator.translate("Hello World") 。|高|
 |🧩 Feature|实现智能重定义选区功能|1、如果用户选中了某输入框中的空白符，但是脚本检测到相邻位置仍有空白符用户漏掉了，脚本就通过 input.setSelectionRange(start, end)方法扩展选区以覆盖所有相邻的空白符，方便用户下一步一键删除所有不想要的空白符。2、如果用户选中了一段文字，但是这段文字的首尾存在空白符，脚本就通过range.setStart() 和 range.setEnd()缩小选区，避免选中用户不想要的空白符。3、脚本原本的逻辑是用户选中空白符直接hideUI，这会影响需求1，需要修改代码实现用户在输入框中选中空格时，脚本可以弹出删除按钮。|高|
 |🧩 Feature|增加长按选择搜索引擎功能|划词后，长按搜索按钮出现搜索引擎菜单，方便用户每次使用不同的搜索引擎发起搜索。另外用户还可以设置长按选择非默认搜索引擎后，是否需要临时将该搜索引擎设置为默认搜索引擎，直到浏览器关闭|中|
 |🧩 Feature|重写“缓存已输入文本” 功能，改名为“输入框历史记录”|类似很多论坛的富文本编辑框自带的定时备份草稿功能。用户在任意一个输入框中输入文字时，脚本为这个输入框创建一个唯一标识符，并将最后一次的输入内容缓存下来（需要排除清空输入框的行为）.触发开始缓存和更新缓存的操作都是用户的键入行为而不是轮询|中|
