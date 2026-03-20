@@ -10,15 +10,15 @@
 
 https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 
-这是一个油猴脚本（UserScript）。最初的目标是在 Chrome、Firefox 等原生浏览器中复刻 360 浏览器、Microsoft Edge 等魔改浏览器内建的划词快捷工具栏功能，因为我不想每次复制文本都需要按下鼠标右键或者 Ctrl+C 快捷键，后来想法越来越多，于是借助 AI 写出了这个脚本。
+这是一个适用于鼠标或触控板使用者的油猴脚本（UserScript），目标是复刻出 Microsoft Edge 内建的划词快捷工具栏，让用户无需按下鼠标右键或者 Ctrl+C 快捷键也可快速复制或搜索选中的文本。
 
-之所以选择用油猴脚本而不是用浏览器扩展来实现，是因为油猴脚本能够一次编写多平台通用，并且无需经过签名、编译等流程即可发布，开发门槛更低。但代价是由于油猴脚本在浏览器中的权限层级较低，导致无法实现某些我预想中的功能。
+之所以选择用油猴脚本而不是用浏览器扩展来实现上述目标，是因为油猴脚本通用性更强，并且无需经过签名、编译等流程即可发布，开发门槛更低。但代价是由于油猴脚本在浏览器中的权限层级较低，导致无法实现某些我预想中的功能。
 
 ## 如何安装？
 
-推荐优先前往[🔗**Greasy Fork**](https://greasyfork.org/zh-CN/scripts/558720)安装，因为[🔗**Github Releases**](https://github.com/CodebyGPT/word_selection_toolbar/releases)中的脚本不支持自动更新。
+推荐前往[👉**Greasy Fork**👈](https://greasyfork.org/zh-CN/scripts/558720)安装，因为[**Github Releases**](https://github.com/CodebyGPT/word_selection_toolbar/releases)中的脚本不支持自动更新。
 
-> 如果你是第一次安装用户脚本，必须先在浏览器中安装用户脚本管理器：Chromium 138+ 推荐使用：[🔗ScriptCat](https://docs.scriptcat.org/)；旧版 Chromium 和 Firefox 浏览器推荐使用：[🔗Violentmonkey](https://violentmonkey.github.io/)、[🔗ScriptCat（v0.16.x）](https://github.com/scriptscat/scriptcat/releases/tag/v0.16.11)。
+> 如果你是第一次安装用户脚本，必须先在浏览器中安装用户脚本管理器：Chromium 138+ 推荐使用：[ScriptCat](https://docs.scriptcat.org/)；旧版 Chromium 和 Firefox 浏览器推荐使用：[Violentmonkey](https://violentmonkey.github.io/)、[ScriptCat（v0.16.x）](https://github.com/scriptscat/scriptcat/releases/tag/v0.16.11)。
 
 ## 基本特性
 
