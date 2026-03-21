@@ -37,7 +37,7 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |🖱️ 网页划词|弹出快捷复制、搜索栏。如果文本含超链接则弹出打开（新建标签页）按钮，如果是常见的网盘链接同时附带访问密码+用户开启了“闪电粘贴”，则跳转到新标签页后点击输入框可以快速粘贴密码。|2025.12.12-功能上线、2026.1.5-增加 UI 重绘设置项、2026.1.19-增加智能分配搜索引擎功能|
 |⌨️ 输入框划词|弹出快捷复制、剪贴按钮。在中文环境下若匹配到内置规则时（例如中英文字符之间没有空格且没有被引号框住）弹出校对按钮。|2025.12.12-功能上线|
 |⚡ 闪电粘贴|复制后，在任意标签页的输入框中点击直接弹出粘贴按钮。|2025.12.12-功能上线|
-|🔓 超级取词|按住热键（默认左Ctrl），可以临时移除网页通过 JS 或 CSS 对选中、复制、Ctrl+C 等操作的干扰，使被鼠标点击的密码暂时变成明文，可完整选取被折叠的文本，松开热键一切复原。测试效果：https://www.wlgooo.com/19458.html 、 https://rehtt.com/ 、 https://www.cnblogs.com/ppqppl/articles/17461611.html 、 https://www.baidu.com/s?wd=0 （测试是否可以展开因 text-overflow 属性折叠的文本）|2025.12.12-功能上线|
+|🔓 超级取词（Unlock Mode）|按住热键（默认左Ctrl），可以临时移除网页通过 JS 或 CSS 对选中、复制、Ctrl+C 等操作的干扰，使被鼠标点击的密码暂时变成明文，可完整选取被折叠的文本，松开热键一切复原。测试效果：https://www.wlgooo.com/19458.html 、 https://rehtt.com/ 、 https://www.cnblogs.com/ppqppl/articles/17461611.html 、 https://www.baidu.com/s?wd=0 （测试是否可以展开因 text-overflow 属性折叠的文本）|2025.12.12-功能上线|
 |🔗 拖拽预览|拖拽任意超链接可打开小窗快速预览。|2025.12.12-功能上线|
 |🚫 屏蔽网页自带划词条|干掉讨厌的网页自带的划词条。|2025.12.12-功能上线|
 
@@ -45,18 +45,20 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 
 |类型|事项|详情|优先级|
 | :--------  | :--------  | :-----  | :----:  |
-|👾 Bug|超级取词（Unlock Mode）在部分网站无法正常运作|1、某些网站（如知乎专栏）由于使用了自定义的字体，导致复制的内容含有乱码。有的网站使用canvas等方式将文字“画”到了屏幕上，导致无法复制。解决上述问题的通用办法是OCR；2、shadow-root相关：用户可能会发现在某些网站中（如msn.cn），无论是否按住超级取词热键，都无法选取特定文本，这是因为目标文本在 shadow-root 里面，外部 JavaScript 无法去除影子内部设置的 user-select: none。|常驻|
-|👾 Bug|超链接提取规则待完善|例如：文本【 天翼云盘：https://cloud.189.cn/t/3yqYreieuUFv(访问码:cpn0) 】被识别成了链接【 https://cloud.189.cn/t/3yqYreieuUFv(:cpn0 】，文本【 5日iPhone 历代壁纸https://www.aliyundrive.com/s/rxUp6HNpwP8点击链接保存,或者复制本段内容,打开「阿里云盘」APP ,无 】被识别为了链接【 https://www.aliyundrive.com/s/rxUp6HNpwP8,,「」APP 】|高|
-|👾 Bug|优化剪切按钮的逻辑|剪切逻辑在某些网页中无法正常删除选中的文字，例如 markdown.lovejade.cn |中|
-|👾 Bug|闪电粘贴无法触发能被网页捕获到的粘贴事件|修改粘贴逻辑以解决（例如百度翻译 fanyi.baidu.com ，粘贴文本后无法即时发起翻译）|中|
-|👾 Bug|修复超级取词-完整选取被折叠的文本功能|该功能会造成某些文本显示位置发生错位，例如百度搜索结果页右侧栏中的“弹幕互动”|中|
-|👾 Bug|解决反向选区按钮位置在页面 scroll/resize 后跳回正向选区按钮位置的问题|（同左）|中|
-|👾 Bug|按钮在某些情况下无法触发刷新位置逻辑|例如GitHub编辑readme.md时|中|
-|👾 Bug|按钮在某些网页中，当页面刷新或resize后彻底消失无法触发重绘，而且反向选区逻辑不生效|例如哔哩哔哩任意视频详情页的任意评论|中|
+|👾 Bug|超级取词在部分网站无法正常运作|1、某些网站（如知乎专栏）由于使用了自定义的字体，导致复制的内容含有乱码。有的网站使用canvas等方式将文字“画”到了屏幕上，导致无法以文本形式复制目标内容。解决上述问题的通用办法是OCR；2、shadow-root相关：用户可能会发现在某些网站中（如msn.cn），无论是否按住超级取词热键，都无法选取特定文本，这是因为目标文本在shadow-root里面，外部JavaScript无法去除影子内部设置的user-select: none|常驻|
+|👾 Bug|网页划词-优化检测提取网盘访问码相关逻辑|例如：文本【 天翼云盘：https://cloud.189.cn/t/3yqYreieuUFv(访问码:cpn0) 】被识别成了链接【 https://cloud.189.cn/t/3yqYreieuUFv(:cpn0 】，文本【 5日iPhone 历代壁纸https://www.aliyundrive.com/s/rxUp6HNpwP8点击链接保存,或者复制本段内容,打开「阿里云盘」APP ,无 】被识别为了链接【 https://www.aliyundrive.com/s/rxUp6HNpwP8,,「」APP 】|高|
+|👾 Bug|输入框划词-优化剪切按钮的逻辑|在某些网页（如 markdown.lovejade.cn ）的输入框中，选取文本后点击剪切按钮，选中的文字没有被删除|中|
+|👾 Bug|闪电粘贴-通过闪电粘贴功能粘贴文本无法触发粘贴事件|如在百度翻译 fanyi.baidu.com 中，在输入框中使用闪电粘贴粘贴文本后未能触发翻译|中|
+|👾 Bug|超级取词-“允许折叠文本滚动”功能可能会破坏网页布局|该功能会造成某些元素发生错位，如百度搜索右边栏中的“弹幕互动”模块|中|
+|👾 Bug|网页划词-UI重绘-反向选区的按钮在页面scroll/resize后重新出现的位置退回正向选区的逻辑|（同左）|中|
+|👾 Bug|输入框划词-UI重绘-UI在某些情况下无法触发重绘|例如GitHub编辑readme.md时，输入框scroll后UI仍在原位置，没有触发重绘|中|
+|👾 Bug|输入框划词-UI重绘-UI重绘后退回网页划词的逻辑|例如GitHub编辑readme.md时，在UI可见期间resize窗口，UI重绘后变成复制、搜索双按钮样式|中|
+|👾 Bug|输入框划词-在特定网页中，无法触发UI重绘、反向选区中UI始终在锚点下方|例如用户在哔哩哔哩视频评论区的任意评论中划取文本，会观察到当页面scroll/resize后UI直接消失没有重绘，而且反向选取文本，UI出现位置始终在锚点下方。但划取右侧相关视频的标题文本就没有上述问题。初步判断是在有特定网页中，脚本获取到的锚点坐标定位有飘移。|中|
+|👾 Bug|输入框划词-脚本因无法取得锚点坐标而自动降级为根据光标位置弹出UI后，UI出现位置距离光标太近|即使设置了UI弹出位置偏移量，在某些场景下UI出现位置仍然距离光标太近，可能会阻挡用户的操作|中|
 |🧩 Feature|网页划词-优化超链接识别|现有识别规则太过宽泛（脚本会把“abcd.efg”也识别成超链接），计划内置一个常见的顶级域名列表来解决该问题|高|
-|🧩 Feature|网页划&输入框划词-划词翻译|计划支持两种翻译方式：1、调用[Stranslate](https://github.com/STranslate/STranslate)提供的本地翻译服务，计划暂时只提供文本翻译；2、调用 Google Chrome 在 138+ 开始提供的 Translator API，计划暂时只实现en→zh翻译。Built-In AI Playground: https://ai.etiennenoel.com/translator-api 。Availability Code：const availability = await Translator.availability({sourceLanguage: "en", targetLanguage: "zh"}); 。Execute Code：const translator = await Translator.create({sourceLanguage: "en", targetLanguage: "zh", monitor(m) {m.addEventListener("downloadprogress", e => {console.log(`Downloaded ${e.loaded} of ${e.total} bytes.`);});},}); await translator.translate("Hello World") 。3、 翻译时忽略代码、含超链接的文本和被英文双引号框住的文本。|高|
-|🧩 Feature|输入框划词-自动微调选区|1、自动选中所有空白符：如果用户选中了空白符，但是脚本检测到相邻位置仍有空白符用户没有选中，脚本会通过input.setSelectionRange(start, end)方法扩展选区以覆盖所有相邻的空白符，方便用户下一步一键删除所有空白符。2、如果用户选中了一段文字，但是这段文字的首尾存在空白符，脚本就通过range.setStart() 和 range.setEnd()缩小选区，避免选中用户不想要的空白符。3、脚本原本的逻辑是用户选中空白符直接hideUI，这会影响需求1，需要修改代码实现用户在输入框中选中空格时，脚本可以弹出删除按钮。|高|
-|🧩 Feature|增加长按选择搜索引擎功能|划词后，长按搜索按钮出现搜索引擎菜单，方便用户每次使用不同的搜索引擎发起搜索。另外用户还可以设置长按选择非默认搜索引擎后，是否需要临时将该搜索引擎设置为默认搜索引擎，直到浏览器关闭|中|
+|🧩 Feature|网页划词、输入框划词-划词翻译|计划支持两种翻译方式：1、调用[Stranslate](https://github.com/STranslate/STranslate)提供的本地翻译服务，计划暂时只提供文本翻译；2、调用 Google Chrome 在 138+ 开始提供的 Translator API，计划暂时只实现en→zh翻译。Built-In AI Playground: https://ai.etiennenoel.com/translator-api 。Availability Code：const availability = await Translator.availability({sourceLanguage: "en", targetLanguage: "zh"}); 。Execute Code：const translator = await Translator.create({sourceLanguage: "en", targetLanguage: "zh", monitor(m) {m.addEventListener("downloadprogress", e => {console.log(`Downloaded ${e.loaded} of ${e.total} bytes.`);});},}); await translator.translate("Hello World") 。3、 翻译时忽略代码、含超链接的文本和被英文双引号框住的文本。备注：全页翻译功能由于涉及多次请求和文本替换等复杂操作，且与“Text Selection Toolbar”关系不大，所以暂不计划在本项目中实现全页翻译功能。|高|
+|🧩 Feature|输入框划词-自动微调选区|1、自动选中相邻空白符：如果用户选中了空白符，但是脚本检测到相邻位置仍有空白符用户没有选中，脚本会通过input.setSelectionRange(start, end)方法扩展选区以覆盖所有相邻的空白符，方便用户下一步一键删除所有空白符。2、自动排除首尾空白符：如果用户选中了一段文字，但是这段文字的首尾存在空白符，脚本就通过range.setStart() 和 range.setEnd()缩小选区，避免选中用户不想要的空白符。3、脚本原逻辑是用户选中任意数量的空白符时直接hideUI，需要修改代码使得用户在选中空白符时可以弹出删除按钮|高|
+|🧩 Feature|网页划词-临时切换搜索引擎功能|初步设想：划词后长按搜索按钮，会出现搜索引擎菜单，方便用户临时选择非默认的搜索引擎发起搜索。另外用户还可以设置长按选择非默认搜索引擎后，是否需要临时将该搜索引擎设置为默认搜索引擎，直到浏览器关闭|中|
 |🧩 Feature|重写“缓存已输入文本” 功能，改名为“输入框历史记录”|类似很多论坛的富文本编辑框自带的定时备份草稿功能。用户在任意一个输入框中输入文字时，脚本为这个输入框创建一个唯一标识符，并将最后一次的输入内容缓存下来（需要排除清空输入框的行为）.触发开始缓存和更新缓存的操作都是用户的键入行为而不是轮询|中|
 |🧩 Feature|实现划词分享功能|1、划取文本后弹出分享按钮，点击分享按钮就自动生成一个分享卡片（纯文本/markdown格式/图片格式可选），内容包括选中的文本、网页链接、网站 Favicon（可选）、网页标题（可选）、生成时间（可选）、选中文本的上下文（可选）、“由<脚本名称>生成...”提示（可选）等信息，允许用户复制到剪切板；2、支持与文本流转功能联动，将多条分享文本合并在一个卡片中|中|
 |🧩 Feature|实现文本流转功能|默认是折叠状态（在网页右上角显示一个贴边悬浮球），用户在网页中划词后可将选中的文本拖放到悬浮球上。点击悬浮球可展开列表（展开/折叠状态默认在所有标签页中同步），每个条目都以长条胶囊形的文本框显示，用户可以将每个胶囊拖放到网页任意输入区中，也可以多选多个条目后按选择顺序进行换行拼接后复制或首尾拼接后复制。该功能还要提供设置让用户选择关闭浏览器时是否保存流转中的文本|中|
