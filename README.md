@@ -54,7 +54,7 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |👾 Bug|按钮在某些情况下无法触发刷新位置逻辑|例如GitHub编辑readme.md时|中|
 |👾 Bug|按钮在某些网页中，当页面刷新或resize后彻底消失无法触发重绘，而且反向选区逻辑不生效|例如哔哩哔哩任意视频详情页的任意评论|中|
 |🧩 Feature|优化超链接识别规则|现有识别规则太过宽泛（例如会把“abcd.efg”也识别成超链接），计划内置一个常见的顶级域名列表来解决|高|
-|🧩 Feature|实现划词翻译功能|借助 Google Chrome 在138+ 开始提供的 Translator API 实现划词后纯离线零延迟翻译体验。自动跳过代码段、含超链接的文本和被英文双引号框住的文本。计划暂时只实现en→zh翻译。Built-In AI Playground: https://ai.etiennenoel.com/translator-api 。Availability Code：const availability = await Translator.availability({sourceLanguage: "en", targetLanguage: "zh"}); 。Execute Code：const translator = await Translator.create({sourceLanguage: "en", targetLanguage: "zh", monitor(m) {m.addEventListener("downloadprogress", e => {console.log(`Downloaded ${e.loaded} of ${e.total} bytes.`);});},}); await translator.translate("Hello World") 。|高|
+|🧩 Feature|实现划词翻译功能|计划支持两种翻译方式：1、调用Stranslate提供的本地翻译服务；2、借助 Google Chrome 在138+ 开始提供的 Translator API 实现划词后纯离线零延迟翻译体验。自动跳过代码段、含超链接的文本和被英文双引号框住的文本。计划暂时只实现en→zh翻译。Built-In AI Playground: https://ai.etiennenoel.com/translator-api 。Availability Code：const availability = await Translator.availability({sourceLanguage: "en", targetLanguage: "zh"}); 。Execute Code：const translator = await Translator.create({sourceLanguage: "en", targetLanguage: "zh", monitor(m) {m.addEventListener("downloadprogress", e => {console.log(`Downloaded ${e.loaded} of ${e.total} bytes.`);});},}); await translator.translate("Hello World") 。|高|
 |🧩 Feature|实现智能重定义选区功能|1、如果用户选中了某输入框中的空白符，但是脚本检测到相邻位置仍有空白符用户漏掉了，脚本就通过 input.setSelectionRange(start, end)方法扩展选区以覆盖所有相邻的空白符，方便用户下一步一键删除所有不想要的空白符。2、如果用户选中了一段文字，但是这段文字的首尾存在空白符，脚本就通过range.setStart() 和 range.setEnd()缩小选区，避免选中用户不想要的空白符。3、脚本原本的逻辑是用户选中空白符直接hideUI，这会影响需求1，需要修改代码实现用户在输入框中选中空格时，脚本可以弹出删除按钮。|高|
 |🧩 Feature|增加长按选择搜索引擎功能|划词后，长按搜索按钮出现搜索引擎菜单，方便用户每次使用不同的搜索引擎发起搜索。另外用户还可以设置长按选择非默认搜索引擎后，是否需要临时将该搜索引擎设置为默认搜索引擎，直到浏览器关闭|中|
 |🧩 Feature|重写“缓存已输入文本” 功能，改名为“输入框历史记录”|类似很多论坛的富文本编辑框自带的定时备份草稿功能。用户在任意一个输入框中输入文字时，脚本为这个输入框创建一个唯一标识符，并将最后一次的输入内容缓存下来（需要排除清空输入框的行为）.触发开始缓存和更新缓存的操作都是用户的键入行为而不是轮询|中|
@@ -72,7 +72,7 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 |🧩 Feature|增加双击输入框后全选文本并弹出划词栏的功能|提供三个选项：关闭（默认）、双击全选但不弹出划词栏、双击全选并弹出划词栏。当输入框类型为单行时双击后全选所有文本，当输入框类型为多行时，双击选中光标位置所在的一整行。|低|
 |🧩 Feature|划取文字时，在光标附近显示放大镜|仿iOS选择文字时的放大镜功能，按下鼠标时立即显示，松开渐变消失|低|
 |🧩 Feature|在网页右下角添加滚动到顶部或底部的按钮|该功能默认关闭|低|
-|🧩 Feature|移除彩蛋功能|业余开发，精力有限，精简脚本，减轻维护|低|
+|🧩 Feature|升级节日彩蛋功能|1、原彩蛋仅在圣诞节或农历春节生效，而且是简单的粒子效果，计划扩展至常见的公历和农历节假日，而且用与节日相关的emoji替代简单的彩色粒子。2、计划在愚人节、618、双十一显示虚假的开通会员有优惠彩蛋，用户与彩蛋交互实际得到的是引导用户点亮本项目star或参与贡献本项目的信息。3、提供禁用所有彩蛋的菜单设置项|低|
 |🧩 Feature|增加拦截网页静默向剪贴板写入内容的行为的功能|当检测到用户没有点击、复制等事件时，网页发生剪贴板写入行为，提示用户，用户可以手动选择默认阻止该网站的复制写入剪贴板的权限。不过鉴于滥用剪贴板写入权限的网站非常少所以需要考虑是否有必要加入这个功能。|待定|
 |🧩 Feature|在非单行输入区中增加插入换行按钮 | 当用户点击输入框中任意一行的末尾时，在光标附近显示换行按钮，点击换行按钮即可在此处换行|待定|
 |🧩 Feature|在非单行输入区中增加删除换行按钮 | 触发检测的事件：1、正向选区末尾后没有字符或反向选区末尾前没有字符→用户点击脚本的删除按钮；2、用户点击输入区。检测方法：判断光标是否位于一个没有任何字符的空行且上方存在行。检测通过：显示删除换行按钮，用户点击后删掉当前空行。如果在删除换行按钮显示期间用户点击了输入区的其他位置改变了光标位置，则立即hideUI。|待定|
@@ -93,4 +93,4 @@ https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
 
 ---
 
-我并不具备专业编程知识，维护这个项目比较消耗时间精力，所以对本项目的任何修改、转载、发布均无需取得我的同意，欢迎任何感兴趣的朋友接续开发本项目。❤️
+❤️请求社区协助：我并不具备专业编程知识，维护这个项目的方式是不断地 AI 抽卡+导入脚本管理器反复测试效果，所以比较消耗时间精力，往往会因为摆弄一个小功能直至满意就消耗掉了一个工作日的晚上。对本项目的任何修改、转载、发布均无需取得我的同意，欢迎任何感兴趣的朋友参与贡献或 fork 本项目。❤️
