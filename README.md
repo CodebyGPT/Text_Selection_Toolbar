@@ -6,8 +6,6 @@
 
 ![demo](https://github.com/user-attachments/assets/f119f59d-fca7-4364-b2e0-c556f2501c7f)
 
-社区贡献：暂无
-
 ## 这是什么？
 
 https://github.com/user-attachments/assets/fb64dc93-37e7-421f-bc5d-89a8ef43b7c8
